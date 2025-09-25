@@ -10,16 +10,17 @@ Luciana Hueda (2203601) Sofia Tula --> repositorio --> https://github.com/220360
     
   Vamos a utilizar la aplicación web que realizamos en Arquitectura de Software II sobre una página de cursos online, donde el usuario puede ser administrador de la página o un estudiante. 
 
-
 * Creá un repositorio en GitHub para tu proyecto  
   Creamos un repositorio llamado 2025\_TP02\_Docker\_INGSOFTIII desde la página web de github. Luego clonamos el repositorio con git clone y, ya finalizado, pegamos en la carpeta de aplicación todos los archivos necesarios para correr la misma.  
   Luego para que se suban los cambios al GitHub, hicimos un git add, git commit \-m “aplicación” y git push.  
+	-- ver en ./img img-01 --
     
 * Configura tu entorno Docker   
   Descargamos Docker Desktop e instalamos, realizamos también el comando:  
   docker version.  
   Para asegurarnos que estaba instalado correctamente. 
 
+	-- ver en ./img img-02 --
 
 ### **2\. Construir una imagen personalizada**
 
@@ -36,6 +37,7 @@ Luciana Hueda (2203601) Sofia Tula --> repositorio --> https://github.com/220360
 - **EXPOSE**: documenta el puerto que el contenedor usará para escuchar conexiones.  
 - **CMD**: define el comando por defecto que se ejecuta cuando corre el contenedor.
 
+	-- ver en ./img img-03 --
 
   Dicho esto, el dockerfile para users-api se ve así:
 
@@ -74,8 +76,10 @@ Luciana Hueda (2203601) Sofia Tula --> repositorio --> https://github.com/220360
   Para etiquetar una imagen con tu usuario de Docker Hub y un tag significativo, vamos a de nuevo utilizar la imagen de users-api.	
 
   Primero que todo, debemos hacer el login, para eso tenemos que correr **docker login.**
+	-- ver en ./img img-04 --
 
   Como nosotras ya tenemos creada la imagen, para agregar el tag tenemos que correr el comando: **docker tag users-api:latest usuario/users-api:v1** donde en usuario colocamos el usuario de Docker de cada una. Utilizamos v1 para indicar que es la primera versión estable. 
+	-- ver en ./img img-05 --
 
 ### **3\. Publicar la imagen en Docker Hub**
 
@@ -88,6 +92,7 @@ Luciana Hueda (2203601) Sofia Tula --> repositorio --> https://github.com/220360
 - Minor: nuevas funcionalidades que mantienen compatibilidad.  
 - Patch: correcciones menores o parches de seguridad.  
   Por eso, con v1.0.0 hacemos referencia a una primera versión estable.
+	-- ver en ./img img-06 --
 
 
 ### **4\. Integrar una base de datos en contenedor**
@@ -110,6 +115,7 @@ Se eligió MySQL como motor de base de datos por las siguientes razones:
 Elegimos MySQL como motor de base de datos ya que la API de usuarios requiere almacenar información relacional, lo cual se adapta naturalmente al modelo relacional que ofrece MySQL. Tambien, Go dispone de un driver oficial usado para MySQL, además tiene una imagen oficial de MySQL en Docker Hub.
 
 Para realizar la conexión de la aplicación al contenedor de base de datos, se realiza mediante Docker compose.yml.
+	-- ver en ./img img-07 --
 
 mysql:                         
 
@@ -312,4 +318,5 @@ Como antes, para el versionado de imágenes, seguimos la semántica de (MAJOR.MI
 
 
 Por eso, con v1.0.0 hacemos referencia a una primera versión estable.
+	-- ver en ./img img-08 --
 
